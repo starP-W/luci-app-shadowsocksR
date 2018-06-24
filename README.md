@@ -72,7 +72,7 @@ OpenWrt LuCI for ShadowsocksR-libev
 tar xjf OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
 cd OpenWrt-SDK-ar71xx-*
 # Clone 项目
-git clone https://github.com/AlexZhuo/luci-app-shadowsocksR.git package/luci-app-shadowsocksR
+git clone https://github.com/starP-W/luci-app-shadowsocksR.git package/luci-app-shadowsocksR
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-shadowsocksR/tools/po2lmo
 make && sudo make install
@@ -90,7 +90,7 @@ make package/luci-app-shadowsocksR/compile V=99
 ![demo](https://github.com/AlexZhuo/luci-app-shadowsocksR/raw/master/screencapture2.png)
 
 [O]: http://www.right.com.cn/forum/thread-198649-1-1.html
-[openwrt-shadowsocksR]: https://github.com/AlexZhuo/openwrt-shadowsocksr
+[openwrt-shadowsocksR]: https://github.com/starP-W/openwrt-shadowsocksr
 [openwrt-sdk]: https://wiki.openwrt.org/doc/howto/obtain.firmware.sdk
 [haproxy]: https://github.com/AlexZhuo/luci-app-haproxy-tcp
 [kcptun]: https://github.com/AlexZhuo/luci-app-kcptun
