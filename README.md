@@ -94,5 +94,5 @@ make package/luci-app-shadowsocksR/compile V=99
 [openwrt-sdk]: https://wiki.openwrt.org/doc/howto/obtain.firmware.sdk
 [haproxy]: https://github.com/AlexZhuo/luci-app-haproxy-tcp
 [kcptun]: https://github.com/AlexZhuo/luci-app-kcptun
-[dnsforwarder]: https://github.com/AlexZhuo/openwrt-dnsforwarder
+[dnsforwarder]: https://github.com/starP-W/openwrt-dnsforwarder
 [redsocks2]: https://github.com/AlexZhuo/openwrt-redsocks2
