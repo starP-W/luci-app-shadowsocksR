@@ -97,6 +97,12 @@ protocol:value("auth_sha1_v4")
 protocol:value("auth_aes128_sha1")
 protocol:value("auth_aes128_md5")
 protocol:value("auth_chain_a")
+protocol:value("auth_chain_b")
+protocol:value("auth_chain_c")
+protocol:value("auth_chain_d")
+protocol:value("auth_chain_e")
+protocol:value("auth_chain_f")
+
 
 protocol_param = s:option(Value, "protocol_param", translate("Protocol Param"),
 	translate("leave it empty is well"))
