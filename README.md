@@ -73,11 +73,13 @@ tar xjf OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.b
 cd OpenWrt-SDK-ar71xx-*
 # Clone 项目
 git clone https://github.com/starP-W/luci-app-shadowsocksR.git package/luci-app-shadowsocksR
+#或者使用dev版，配合dev版的ssr客户端以启用新的协议
+git clone -b dev https://github.com/starP-W/luci-app-shadowsocksR.git package/luci-app-shadowsocksR
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-shadowsocksR/tools/po2lmo
 make && sudo make install
 popd
-# 选择要编译的包 NetWork -> LuCI -> luci-app-shadowsocksR
+# 选择要编译的包 Alex -> LuCI -> luci-app-shadowsocksR
 make menuconfig
 # 开始编译
 make package/luci-app-shadowsocksR/compile V=99
@@ -96,3 +98,4 @@ make package/luci-app-shadowsocksR/compile V=99
 [kcptun]: https://github.com/AlexZhuo/luci-app-kcptun
 [dnsforwarder]: https://github.com/starP-W/openwrt-dnsforwarder
 [redsocks2]: https://github.com/AlexZhuo/openwrt-redsocks2
+[dev]: https://github.com/starP-W/openwrt-shadowsocksr/tree/dev
