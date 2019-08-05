@@ -14,7 +14,7 @@ define Package/$(PKG_NAME)
 	SUBMENU:=LuCI
 	PKGARCH:=all
 	TITLE:=luci for shadowsocksR
-	DEPENDS:=+ssr-libev-alex +dnsforwarder +ipset +ip +iptables-mod-tproxy +kmod-ipt-tproxy +iptables-mod-nat-extra +coreutils-nohup +luci
+	DEPENDS:= +dnsforwarder +ipset +ip +iptables-mod-tproxy +kmod-ipt-tproxy +iptables-mod-nat-extra +coreutils-nohup +luci
 endef
 
 define Package/$(PKG_NAME)/description
