@@ -27,6 +27,7 @@ start()
 	local vt_server_port=`uci get ssrr.@shadowsocksr[0].server_port`
 	local vt_password=`uci get ssrr.@shadowsocksr[0].password 2>/dev/null`
 	local vt_method=`uci get ssrr.@shadowsocksr[0].method 2>/dev/null`
+	local vt_ssmethod=`uci get ssrr.@shadowsocksr[0].ssmethod 2>/dev/null`
 	local vt_protocol=`uci get ssrr.@shadowsocksr[0].protocol 2>/dev/null`
 	local vt_obfs=`uci get ssrr.@shadowsocksr[0].obfs 2>/dev/null`
 	local vt_obfs_param=`uci get ssrr.@shadowsocksr[0].obfs_param 2>/dev/null`
@@ -63,6 +64,7 @@ start()
 	[ -z "$vt_proxy_mode" ] && vt_proxy_mode=S #默认是境外IP模式
 	[ -z "$vt_dns_mode" ] && vt_dns_mode=tcp_gfwlist #默认是GFWList的DNS模式
 	[ -z "$vt_method" ] && vt_method=table
+	[ -z "$vt_ssmethod" ] && vt_ssmethod=table
 	[ -z "$vt_timeout" ] && vt_timeout=60
 	[ -z "$tool" ] && tool=ShadowsocksR
 	case "$vt_proxy_mode" in
@@ -115,14 +117,14 @@ EOF
 	"server_port": $vt_server_port,
 	"local_address": "0.0.0.0",
 	"password": "$vt_password",
-	"method": "$vt_method",
+	"method": "$vt_ssmethod",
 	"timeout": "$vt_timeout",
 	"fast_open": false
 }
 EOF
 			sleep 1
 			/usr/bin/ss-redir -c $SSR_CONF -u -b0.0.0.0 -l$SS_REDIR_PORT -s$vt_server_addr -p$vt_server_port \
-			-k"$vt_password" -m$vt_method -t$vt_timeout -f $SS_REDIR_PIDFILE || return 1
+			-k"$vt_password" -m$vt_ssmethod -t$vt_timeout -f $SS_REDIR_PIDFILE || return 1
 			
 			[ $enable_local = 1 ] && [ "$ssr_local_port" -gt "1" ] && {
 				echo ssrr-local enabled!
