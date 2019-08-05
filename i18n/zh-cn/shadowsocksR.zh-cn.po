@@ -157,6 +157,7 @@ msgstr "开启ssr-local有利于排查问题"
 msgid "SSR is Running"
 msgstr "SSR运行中"
 
-
+msgid "SS is Running"
+msgstr "SS运行中"
 
 

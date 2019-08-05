@@ -121,12 +121,12 @@ EOF
 }
 EOF
 			sleep 1
-			/usr/bin/ssrr-redir -c $SSR_CONF -u -b0.0.0.0 -l$SS_REDIR_PORT -s$vt_server_addr -p$vt_server_port \
+			/usr/bin/ss-redir -c $SSR_CONF -u -b0.0.0.0 -l$SS_REDIR_PORT -s$vt_server_addr -p$vt_server_port \
 			-k"$vt_password" -m$vt_method -t$vt_timeout -f $SS_REDIR_PIDFILE || return 1
 			
 			[ $enable_local = 1 ] && [ "$ssr_local_port" -gt "1" ] && {
 				echo ssrr-local enabled!
-				/usr/bin/ssrr-local -u -b0.0.0.0 -l$ssr_local_port -s$vt_server_addr -p$vt_server_port \
+				/usr/bin/ss-local -u -b0.0.0.0 -l$ssr_local_port -s$vt_server_addr -p$vt_server_port \
 					-k"$vt_password" -m$vt_method -t$vt_timeout -f $SS_LOCAL_PIDFILE || return 1
 			}
 			;;

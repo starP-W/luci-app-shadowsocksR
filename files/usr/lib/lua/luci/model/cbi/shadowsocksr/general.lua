@@ -11,9 +11,12 @@ local fs = require "nixio.fs"
 local state_msg = ""
 local ssr_redir_on = (luci.sys.call("pidof ssrr-redir > /dev/null") == 0)
 local redsocks2_on = (luci.sys.call("pidof redsocks2 > /dev/null") == 0)
+local ss_redir_on = (luci.sys.call("pidof ss-redir > /dev/null") == 0)
 
 if ssr_redir_on then	
 	state_msg = "<b><font color=\"green\">" .. translate("SSR is Running") .. "</font></b>"
+elseif ss_redir_on then
+    state_msg = "<b><font color=\"green\">" .. translate("SS is Running") .. "</font></b>"
 elseif redsocks2_on then
 	state_msg = state_msg .. "<b>  <font color=\"green\">" .. translate("Redsocks2 is Running") .. "</font></b>"
 else
@@ -63,7 +66,6 @@ password.password = true
 
 method = s:option(ListValue, "method", translate("Encryption Method"))
 method:depends("tool","ShadowsocksR")
-method:depends("tool","Shadowsocks")
 method:value("table")
 method:value("rc4")
 method:value("rc4-md5")
@@ -83,6 +85,24 @@ method:value("salsa20")
 method:value("chacha20")
 method:value("chacha20-ietf")
 method:value("none")
+
+method = s:option(ListValue, "method", translate("Encryption Method"))
+method:depends("tool","Shadowsocks")
+method:value("chacha20-ietf-poly1305")
+method:value("aes-256-gcm")
+method:value("aes-192-gcm")
+method:value("aes-128-gcm")
+method:value("aes-128-ctr")
+method:value("aes-192-ctr")
+method:value("aes-256-ctr")
+method:value("aes-128-cfb")
+method:value("aes-192-cfb")
+method:value("aes-256-cfb")
+method:value("camellia-128-cfb")
+method:value("camellia-192-cfb")
+method:value("camellia-256-cfb")
+method:value("chacha20-ietf")
+
 
 protocol = s:option(ListValue, "protocol", translate("Protocol"))
 protocol:depends("tool","ShadowsocksR")
